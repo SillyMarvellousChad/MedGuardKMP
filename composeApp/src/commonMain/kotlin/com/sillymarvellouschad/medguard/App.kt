@@ -10,88 +10,38 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.sillymarvellouschad.medguard.domain.model.risk.RiskEngine
+import com.sillymarvellouschad.medguard.domain.model.risk.RiskLevel
 import com.sillymarvellouschad.medguard.network.checkDrugInteractions
+import com.sillymarvellouschad.medguard.ui.graph.RiskGraph
 import kotlinx.coroutines.launch
-import org.jetbrains.compose.ui.tooling.preview.Preview
 
 // --------------------
-// Risk Engine (DEFINED ONCE — SAFE)
+// AI MESSAGE SANITIZER
 // --------------------
-enum class RiskLevel { HIGH, MODERATE, LOW }
-
-fun evaluateRisk(medications: List<String>): RiskLevel {
-    val meds = medications.map { it.lowercase().trim() }
-
-    val illegalDrugs = setOf(
-        "cocaine", "heroin", "meth", "methamphetamine",
-        "mdma", "ecstasy", "lsd"
-    )
-
-    val opioids = setOf(
-        "opioid", "morphine", "oxycodone",
-        "hydrocodone", "codeine", "fentanyl"
-    )
-
-    val benzos = setOf(
-        "benzodiazepine", "diazepam",
-        "alprazolam", "lorazepam", "clonazepam"
-    )
-
-    val alcohol = setOf(
-        "alcohol", "ethanol", "beer", "wine", "whiskey"
-    )
-
-    // 🚨 Illegal drugs → HIGH RISK
-    if (meds.any { it in illegalDrugs }) {
-        return RiskLevel.HIGH
+private fun sanitizeAiMessage(raw: String): String {
+    val lower = raw.lowercase()
+    return when {
+        "quota" in lower ||
+                "rate" in lower ||
+                "billing" in lower ||
+                "limit" in lower ||
+                "network" in lower ||
+                "error" in lower ->
+            "AI analysis is temporarily unavailable. The rule-based safety assessment above should be followed."
+        else -> raw
     }
-
-    // 🚨 Opioids + Benzos / Alcohol
-    if (
-        meds.any { it in opioids } &&
-        (meds.any { it in benzos } || meds.any { it in alcohol })
-    ) {
-        return RiskLevel.HIGH
-    }
-
-    // 🚨 Benzos + Alcohol
-    if (meds.any { it in benzos } && meds.any { it in alcohol }) {
-        return RiskLevel.HIGH
-    }
-
-    // 🚨 Aspirin + Warfarin
-    if ("aspirin" in meds && "warfarin" in meds) {
-        return RiskLevel.HIGH
-    }
-
-    // ⚠️ Polypharmacy
-    if (meds.size >= 5) {
-        return RiskLevel.MODERATE
-    }
-
-    return RiskLevel.LOW
 }
 
-fun userFriendlyMessage(aiResult: String): String =
-    if (
-        aiResult.startsWith("Network Error") ||
-        aiResult.startsWith("Google API Error")
-    ) {
-        "AI explanation is temporarily unavailable. Displaying rule-based medication safety information."
-    } else aiResult
-
-// --------------------
-// UI
-// --------------------
 @Composable
-@Preview
 fun App(apiKey: String) {
 
     MaterialTheme {
 
         var medsInput by remember { mutableStateOf("") }
-        var result by remember { mutableStateOf("Tap 'Check' to analyze medication safety.") }
         var riskLevel by remember { mutableStateOf<RiskLevel?>(null) }
+        var ruleExplanation by remember { mutableStateOf("") }
+        var aiExplanation by remember { mutableStateOf<String?>(null) }
         var isLoading by remember { mutableStateOf(false) }
         var accessibilityMode by remember { mutableStateOf(false) }
         var showScanner by remember { mutableStateOf(false) }
@@ -103,10 +53,7 @@ fun App(apiKey: String) {
             if (accessibilityMode)
                 MaterialTheme.typography.bodyLarge.copy(fontSize = 20.sp)
             else
-                MaterialTheme.typography.bodyLarge
-
-        val smallText =
-            if (accessibilityMode) 16.sp else 12.sp
+                MaterialTheme.typography.bodyMedium
 
         // --------------------
         // SCANNER SCREEN
@@ -122,9 +69,6 @@ fun App(apiKey: String) {
             return@MaterialTheme
         }
 
-        // --------------------
-        // MAIN SCREEN
-        // --------------------
         Column(
             modifier = Modifier
                 .fillMaxSize()
@@ -141,18 +85,12 @@ fun App(apiKey: String) {
 
             Spacer(Modifier.height(16.dp))
 
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                modifier = Modifier.fillMaxWidth()
-            ) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
                 Switch(
                     checked = accessibilityMode,
                     onCheckedChange = { accessibilityMode = it },
                     colors = SwitchDefaults.colors(
-                        checkedThumbColor = Color.White,
-                        checkedTrackColor = Color(0xFF4CAF50),
-                        uncheckedThumbColor = Color.White,
-                        uncheckedTrackColor = Color.LightGray
+                        checkedTrackColor = Color(0xFF4CAF50)
                     )
                 )
                 Spacer(Modifier.width(8.dp))
@@ -190,14 +128,18 @@ fun App(apiKey: String) {
                         .map { it.trim() }
                         .filter { it.isNotEmpty() }
 
-                    riskLevel = evaluateRisk(meds)
+                    val evaluation = RiskEngine.evaluateWithExplanation(meds)
+                    riskLevel = evaluation.level
+                    ruleExplanation = evaluation.explanation
 
                     scope.launch {
                         isLoading = true
-                        try {
-                            result = checkDrugInteractions(apiKey, meds)
-                        } catch (e: Exception) {
-                            result = "Network Error: ${e.message}"
+                        aiExplanation = try {
+                            sanitizeAiMessage(
+                                checkDrugInteractions(apiKey, meds)
+                            )
+                        } catch (_: Exception) {
+                            "AI analysis temporarily unavailable."
                         } finally {
                             isLoading = false
                         }
@@ -205,10 +147,7 @@ fun App(apiKey: String) {
                 }
             ) {
                 if (isLoading) {
-                    CircularProgressIndicator(
-                        modifier = Modifier.size(24.dp),
-                        color = MaterialTheme.colorScheme.onPrimary
-                    )
+                    CircularProgressIndicator(modifier = Modifier.size(24.dp))
                 } else {
                     Text("Check Interactions", style = bodyText)
                 }
@@ -219,22 +158,41 @@ fun App(apiKey: String) {
             Card(modifier = Modifier.fillMaxWidth()) {
                 Column(Modifier.padding(16.dp)) {
 
+                    riskLevel?.let {
+                        RiskGraph(it)
+                        Spacer(Modifier.height(12.dp))
+                    }
+
                     when (riskLevel) {
                         RiskLevel.HIGH ->
                             RiskBanner("❗", "HIGH RISK", Color.Red, bodyText)
-
                         RiskLevel.MODERATE ->
                             RiskBanner("⚠️", "MODERATE RISK", Color(0xFFFFA000), bodyText)
-
                         RiskLevel.LOW ->
                             RiskBanner("✅", "LOW RISK", Color(0xFF2E7D32), bodyText)
-
                         null -> {}
                     }
 
                     Spacer(Modifier.height(8.dp))
 
-                    Text(userFriendlyMessage(result), style = bodyText)
+                    if (ruleExplanation.isNotBlank()) {
+                        Text(
+                            text = "Why this matters:\n$ruleExplanation",
+                            style = bodyText
+                        )
+                    }
+
+                    Spacer(Modifier.height(8.dp))
+
+                    aiExplanation?.let {
+                        Text(
+                            text = "AI Insight:\n$it",
+                            style = bodyText.copy(
+                                fontSize = if (accessibilityMode) 18.sp else 14.sp,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            )
+                        )
+                    }
                 }
             }
 
@@ -246,9 +204,8 @@ fun App(apiKey: String) {
                             "MedGuard AI provides informational medication safety insights only. " +
                             "It is not a diagnostic tool and does not replace professional medical advice. " +
                             "Always consult a qualified healthcare professional before starting, stopping, " +
-                            "or combining medications.",
-                fontSize = smallText,
-                color = MaterialTheme.colorScheme.onSurfaceVariant
+                            "or combining medications."
+
             )
         }
     }
