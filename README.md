@@ -1,4 +1,5 @@
-![ic_medguard_logo](https://github.com/user-attachments/assets/be0a7be7-e3fd-4caf-b325-c790b52ce107)
+![ic_medguard_logo1](https://github.com/user-attachments/assets/b9451089-1f57-49d4-abe9-b179a24d67eb)
+
 
 This is a Kotlin Multiplatform project targeting Android, iOS.
 
