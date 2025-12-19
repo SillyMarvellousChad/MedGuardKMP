@@ -1,5 +1,5 @@
 ![ic_medguard_logo1](https://github.com/user-attachments/assets/b9451089-1f57-49d4-abe9-b179a24d67eb)
-MedGuardKMP Logo
+
 # MedGuard AI
 
 **MedGuard AI** is a Kotlin Multiplatform application designed to improve medication safety by identifying potentially dangerous drug interactions using a **reliable rule-based engine**, enhanced with **optional AI explanations**.
@@ -26,6 +26,9 @@ The project focuses on **safety-first design**, accessibility, and graceful degr
 - 📷 **Medicine scan flow** (camera-ready, demo simulated)
 - 🛡️ Safe handling of network, quota, and API failures
 - 🧱 Clean separation of UI, domain logic, and risk evaluation
+## App Architecture
+![Uploading image.png…]()
+
 
 
 ## Kotlin Multiplatform Architecture
