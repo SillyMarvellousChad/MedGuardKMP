@@ -1,38 +1,36 @@
 ![ic_medguard_logo1](https://github.com/user-attachments/assets/b9451089-1f57-49d4-abe9-b179a24d67eb)
+MedGuardKMP Logo
+# MedGuard AI
+
+**MedGuard AI** is a Kotlin Multiplatform application designed to improve medication safety by identifying potentially dangerous drug interactions using a **reliable rule-based engine**, enhanced with **optional AI explanations**.
+
+The project focuses on **safety-first design**, accessibility, and graceful degradation when AI services are unavailable — making it suitable for real world healthcare scenarios and educational use.
 
 
-This is a Kotlin Multiplatform project targeting Android, iOS.
 
-* [/composeApp](./composeApp/src) is for code that will be shared across your Compose Multiplatform applications.
-  It contains several subfolders:
-  - [commonMain](./composeApp/src/commonMain/kotlin) is for code that’s common for all targets.
-  - Other folders are for Kotlin code that will be compiled for only the platform indicated in the folder name.
-    For example, if you want to use Apple’s CoreCrypto for the iOS part of your Kotlin app,
-    the [iosMain](./composeApp/src/iosMain/kotlin) folder would be the right place for such calls.
-    Similarly, if you want to edit the Desktop (JVM) specific part, the [jvmMain](./composeApp/src/jvmMain/kotlin)
-    folder is the appropriate location.
+##Project Goals
 
-* [/iosApp](./iosApp/iosApp) contains iOS applications. Even if you’re sharing your UI with Compose Multiplatform,
-  you need this entry point for your iOS app. This is also where you should add SwiftUI code for your project.
+- Prevent dangerous medication combinations
+- Provide clear, human-readable risk explanations
+- Remain functional without external AI services
+- Demonstrate clean Kotlin Multiplatform architecture
+- Prioritize accessibility and usability for all users
 
-### Build and Run Android Application
 
-To build and run the development version of the Android app, use the run configuration from the run widget
-in your IDE’s toolbar or build it directly from the terminal:
-- on macOS/Linux
-  ```shell
-  ./gradlew :composeApp:assembleDebug
-  ```
-- on Windows
-  ```shell
-  .\gradlew.bat :composeApp:assembleDebug
-  ```
+## Key Features
 
-### Build and Run iOS Application
+- 🧠 **Rule-based medication risk engine** (offline & deterministic)
+- 🤖 **Optional AI explanations** with graceful fallback
+- 📊 **Visual risk graph** (Low / Moderate / High)
+- ♿ **Accessibility Mode** (large text across the UI)
+- 📷 **Medicine scan flow** (camera-ready, demo simulated)
+- 🛡️ Safe handling of network, quota, and API failures
+- 🧱 Clean separation of UI, domain logic, and risk evaluation
 
-To build and run the development version of the iOS app, use the run configuration from the run widget
-in your IDE’s toolbar or open the [/iosApp](./iosApp) directory in Xcode and run it from there.
 
----
+## Kotlin Multiplatform Architecture
 
-Learn more about [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html)…
+This is a **Kotlin Multiplatform (KMP)** project targeting **Android and iOS**.
+
+
+
