@@ -1,3 +1,5 @@
+![ic_medguard_logo](https://github.com/user-attachments/assets/be0a7be7-e3fd-4caf-b325-c790b52ce107)
+
 This is a Kotlin Multiplatform project targeting Android, iOS.
 
 * [/composeApp](./composeApp/src) is for code that will be shared across your Compose Multiplatform applications.
