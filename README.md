@@ -43,14 +43,21 @@ Built using **Kotlin Multiplatform and Compose Multiplatform**, MedGuard AI runs
 
 ---
 
-## 🎥 Demo
+## 🎥 Demo Video and Screenshots
 
-👉 **[Add your 3–5 minute demo video link here]**
+👉 **[https://docs.google.com/document/d/1bjCUUsWPaM45VbkSBar5IPswqf98tc4ziuWEf5uercI/edit?usp=drive_link]**
 
-*(Tip: Show scanning, risk analysis, graphs, accessibility mode, and fallback when AI fails.)*
+<img width="738" height="1600" alt="image" src="https://github.com/user-attachments/assets/12f18219-529e-430b-bdbc-e7be92c64687" />
+<img width="738" height="1600" alt="image" src="https://github.com/user-attachments/assets/2cd5d27d-e35f-4e55-aa40-71b672a0cbb8" />
+<img width="738" height="1600" alt="image" src="https://github.com/user-attachments/assets/c6ea885f-e58c-43a2-8b67-c4ea6c558bf7" />
+<img width="738" height="1600" alt="image" src="https://github.com/user-attachments/assets/34f2ccea-95ff-46e1-87f8-71dcdd771e68" />
+<img width="738" height="1600" alt="image" src="https://github.com/user-attachments/assets/47ee3639-2559-4953-8355-5e861a184ddb" />
+
 
 ---
-
+## 🎥 Essay Link 
+https://docs.google.com/document/d/1bjCUUsWPaM45VbkSBar5IPswqf98tc4ziuWEf5uercI/edit?usp=sharing
+---
 ## Project Structure
 
 This is a **Kotlin Multiplatform (KMP)** project targeting **Android and iOS**.
