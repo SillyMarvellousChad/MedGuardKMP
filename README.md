@@ -27,7 +27,13 @@ The project focuses on **safety-first design**, accessibility, and graceful degr
 - 🛡️ Safe handling of network, quota, and API failures
 - 🧱 Clean separation of UI, domain logic, and risk evaluation
 ## App Architecture
-![Uploading image.png…]()
+<img width="2816" height="1536" alt="Arch" src="https://github.com/user-attachments/assets/f3b02b8c-2c5a-415a-94be-670b97358d2b" />
+composeApp/
+├── commonMain/ Shared UI, domain logic, risk engine
+├── androidMain/Android-specific implementations
+├── iosMain/iOS-specific implementations
+iosApp/iOS application entry point (SwiftUI)
+
 
 
 
