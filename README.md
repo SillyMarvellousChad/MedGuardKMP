@@ -52,7 +52,6 @@ Built using **Kotlin Multiplatform and Compose Multiplatform**, MedGuard AI runs
 <img width="200" alt="image" src="https://github.com/user-attachments/assets/2cd5d27d-e35f-4e55-aa40-71b672a0cbb8" />
 <img width="200" alt="image" src="https://github.com/user-attachments/assets/c6ea885f-e58c-43a2-8b67-c4ea6c558bf7" />
 <img width="200" alt="image" src="https://github.com/user-attachments/assets/34f2ccea-95ff-46e1-87f8-71dcdd771e68" />
-<img width="200" alt="image" src="https://github.com/user-attachments/assets/47ee3639-2559-4953-8355-5e861a184ddb" />
 
 
 ---
