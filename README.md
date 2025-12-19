@@ -94,6 +94,7 @@ Follow the official setup guide:
 ---
 
 ### ▶️ Build & Run — Android
+Clone the repository: https://github.com/SillyMarvellousChad/MedGuardKMP.git
 
 **macOS / Linux**
 
@@ -138,6 +139,53 @@ model=gemini-2.5-flash
 If the API fails or is missing, the app automatically falls back to **rule-based safety analysis**.
 
 ---
+## How to Try Key Features
+
+This section explains how to explore MedGuard AI’s core functionality once the app is running.
+
+1️⃣ Medication Interaction Check (Rule-Based + AI)
+
+Launch the app.
+
+Enter medications in the input field, separated by commas
+(example: Metformin, Amlodipine, Atorvastatin).
+
+Tap “Check Interactions”.
+
+The app will:
+
+Instantly display a rule-based safety assessment (Low / Moderate / High risk)
+
+Show a clear explanation of why the risk level was assigned
+
+Optionally display an AI-generated insight when the AI service is available
+
+If the AI service is unavailable, the app gracefully falls back to the rule-based engine.
+
+2️⃣ Scan Medicines (Camera / Demo Mode)
+
+Tap “📷 Scan Medicines”.
+
+On supported platforms, point the camera at a medicine label
+(or use the demo scan button if running in emulator mode).
+
+The detected medicines are automatically filled into the input field.
+
+Tap “Check Interactions” to analyze the scanned medications.
+
+This demonstrates how MedGuard AI can reduce manual input and improve accessibility.
+
+3️⃣ Risk Visualization (Graphs)
+
+After running an interaction check, the app displays a visual risk graph:
+
+🟢 Green bar → Low risk
+
+🟡 Yellow bar → Moderate risk
+
+🔴 Red bar → High risk
+
+This provides quick, intuitive feedback for users without medical expertise.
 
 ## Architecture
 
