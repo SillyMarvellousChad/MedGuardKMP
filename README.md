@@ -1,5 +1,5 @@
 ![ic_medguard_logo1](https://github.com/user-attachments/assets/b9451089-1f57-49d4-abe9-b179a24d67eb)
-# 🛡️ MedGuard AI
+# MedGuard AI
 
 Medication safety is often overlooked, yet dangerous drug interactions are one of the most common preventable healthcare risks. **MedGuard AI** is a cross-platform mobile application designed to help users identify **potentially harmful medication combinations** in a clear, accessible, and reliable way.
 
@@ -19,7 +19,7 @@ Built using **Kotlin Multiplatform and Compose Multiplatform**, MedGuard AI runs
   * Polypharmacy risks
   * Known high-risk drug pairings
 
-* 🧠 **Rule-Based Risk Engine (Always Works)**
+* **Rule-Based Risk Engine (Always Works)**
   A deterministic safety engine classifies interactions into:
 
   * 🟢 Low Risk
@@ -51,7 +51,7 @@ Built using **Kotlin Multiplatform and Compose Multiplatform**, MedGuard AI runs
 
 ---
 
-## 🏗️ Project Structure
+## Project Structure
 
 This is a **Kotlin Multiplatform (KMP)** project targeting **Android and iOS**.
 
@@ -71,7 +71,7 @@ MedGuardKMP/
 
 ---
 
-## 🚀 How to Run the Project
+## How to Run the Project
 
 ### Prerequisites
 
@@ -132,7 +132,7 @@ If the API fails or is missing, the app automatically falls back to **rule-based
 
 ---
 
-## 🧠 Architecture
+## Architecture
 
 MedGuard AI follows a **clean, layered architecture**:
 
@@ -170,7 +170,7 @@ Always consult a qualified healthcare professional before starting, stopping, or
 
 ---
 
-## 🛠️ Built Using
+## Built Using
 
 * **Kotlin Multiplatform**
 * **Compose Multiplatform**
@@ -183,7 +183,7 @@ Always consult a qualified healthcare professional before starting, stopping, or
 
 ## 📄 License
 
-This project is licensed under the ** Apache License 2.0**.
+This project is licensed under the **Apache License 2.0**.
 
 
 
