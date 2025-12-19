@@ -45,13 +45,13 @@ Built using **Kotlin Multiplatform and Compose Multiplatform**, MedGuard AI runs
 
 ## 🎥 Demo Video and Screenshots
 
-👉 **[https://docs.google.com/document/d/1bjCUUsWPaM45VbkSBar5IPswqf98tc4ziuWEf5uercI/edit?usp=drive_link]**
+👉 **[https://drive.google.com/file/d/1PDhA0t0rWj2uandyjBn5EI9AS4mYo8vD/view?usp=drive_link]**
 
-<img width="738" height="1600" alt="image" src="https://github.com/user-attachments/assets/12f18219-529e-430b-bdbc-e7be92c64687" />
-<img width="738" height="1600" alt="image" src="https://github.com/user-attachments/assets/2cd5d27d-e35f-4e55-aa40-71b672a0cbb8" />
-<img width="738" height="1600" alt="image" src="https://github.com/user-attachments/assets/c6ea885f-e58c-43a2-8b67-c4ea6c558bf7" />
-<img width="738" height="1600" alt="image" src="https://github.com/user-attachments/assets/34f2ccea-95ff-46e1-87f8-71dcdd771e68" />
-<img width="738" height="1600" alt="image" src="https://github.com/user-attachments/assets/47ee3639-2559-4953-8355-5e861a184ddb" />
+<img width="300" alt="image" src="https://github.com/user-attachments/assets/12f18219-529e-430b-bdbc-e7be92c64687" />
+<img width="300" alt="image" src="https://github.com/user-attachments/assets/2cd5d27d-e35f-4e55-aa40-71b672a0cbb8" />
+<img width="300" alt="image" src="https://github.com/user-attachments/assets/c6ea885f-e58c-43a2-8b67-c4ea6c558bf7" />
+<img width="300" alt="image" src="https://github.com/user-attachments/assets/34f2ccea-95ff-46e1-87f8-71dcdd771e68" />
+<img width="300" alt="image" src="https://github.com/user-attachments/assets/47ee3639-2559-4953-8355-5e861a184ddb" />
 
 
 ---
