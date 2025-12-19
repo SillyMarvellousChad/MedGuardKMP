@@ -1,4 +1,5 @@
-![ic_medguard_logo1](https://github.com/user-attachments/assets/b9451089-1f57-49d4-abe9-b179a24d67eb)
+![logo1](https://github.com/user-attachments/assets/113bccc8-de62-498e-bcb0-3aa8777e3a23)
+
 # MedGuard AI
 
 Medication safety is often overlooked, yet dangerous drug interactions are one of the most common preventable healthcare risks. **MedGuard AI** is a cross-platform mobile application designed to help users identify **potentially harmful medication combinations** in a clear, accessible, and reliable way.
@@ -47,11 +48,11 @@ Built using **Kotlin Multiplatform and Compose Multiplatform**, MedGuard AI runs
 
 👉 **[https://drive.google.com/file/d/1PDhA0t0rWj2uandyjBn5EI9AS4mYo8vD/view?usp=drive_link]**
 
-<img width="300" alt="image" src="https://github.com/user-attachments/assets/12f18219-529e-430b-bdbc-e7be92c64687" />
-<img width="300" alt="image" src="https://github.com/user-attachments/assets/2cd5d27d-e35f-4e55-aa40-71b672a0cbb8" />
-<img width="300" alt="image" src="https://github.com/user-attachments/assets/c6ea885f-e58c-43a2-8b67-c4ea6c558bf7" />
-<img width="300" alt="image" src="https://github.com/user-attachments/assets/34f2ccea-95ff-46e1-87f8-71dcdd771e68" />
-<img width="300" alt="image" src="https://github.com/user-attachments/assets/47ee3639-2559-4953-8355-5e861a184ddb" />
+<img width="200" alt="image" src="https://github.com/user-attachments/assets/12f18219-529e-430b-bdbc-e7be92c64687" />
+<img width="200" alt="image" src="https://github.com/user-attachments/assets/2cd5d27d-e35f-4e55-aa40-71b672a0cbb8" />
+<img width="200" alt="image" src="https://github.com/user-attachments/assets/c6ea885f-e58c-43a2-8b67-c4ea6c558bf7" />
+<img width="200" alt="image" src="https://github.com/user-attachments/assets/34f2ccea-95ff-46e1-87f8-71dcdd771e68" />
+<img width="200" alt="image" src="https://github.com/user-attachments/assets/47ee3639-2559-4953-8355-5e861a184ddb" />
 
 
 ---
