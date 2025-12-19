@@ -1,4 +1,4 @@
-![logo1](https://github.com/user-attachments/assets/113bccc8-de62-498e-bcb0-3aa8777e3a23)
+<img src="https://github.com/user-attachments/assets/1e79ac01-53bd-41c5-b92a-651ae6b8fe1a" width="100" alt="logo1">
 
 # MedGuard AI
 
